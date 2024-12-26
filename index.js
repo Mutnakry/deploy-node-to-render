@@ -66,6 +66,20 @@ app.use('/api/product', ProductRoutes);
 const authRoutes = require('./src/route/authRoute');
 app.use('/api/auth', authRoutes);
 
+
+router.get('/cate', (req, res) => {
+    db.query("SELECT * FROM categories", (err, results) => {
+        if (err) {
+            console.error("Error fetching categories:", err);  // Log error
+            res.status(500).json({ error: "Error fetching categories" });
+        } else {
+            console.log("Categories fetched successfully:", results);  // Log success
+            res.json(results);
+        }
+    });
+});
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
