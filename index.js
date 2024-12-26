@@ -67,7 +67,7 @@ const authRoutes = require('./src/route/authRoute');
 app.use('/api/auth', authRoutes);
 
 
-router.get('/cate', (req, res) => {
+app.get('/cate', (req, res) => {
     db.query("SELECT * FROM categories", (err, results) => {
         if (err) {
             console.error("Error fetching categories:", err);  // Log error
