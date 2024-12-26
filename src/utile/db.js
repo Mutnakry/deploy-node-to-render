@@ -1,19 +1,3 @@
-// const mysql = require("mysql");
-
-// const db = mysql.createConnection({
-//     host:"localhost",
-//     user:"root",
-//     password:"",
-//     database:"app_game",
-//     port:"3306",
-//     dateStrings: 'don'
-
-// })
-
-// module.exports=db;
-
-
-
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
@@ -22,7 +6,7 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME || "app_game",
     port: process.env.DB_PORT || 3306,
-    dateStrings: true // Converts DATE/TIMESTAMP fields to strings
+    dateStrings: true
 });
 
 db.connect(err => {
